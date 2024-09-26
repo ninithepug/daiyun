@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精子捐献信息</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>精子捐献信息</h1>
+    
+    <section id="intro">
+        <h2>关于我们</h2>
+        <p>我们是一个致力于帮助有需要的家庭的组织。我们提供精子捐献服务,为不孕不育家庭带来希望。</p>
+        <p>我们严格遵守相关法律法规,确保所有参与者的权益和安全。</p>
+    </section>
+
+    <section id="requirements">
+        <h2>捐献者要求</h2>
+        <ul>
+            <li>年龄在18-45岁之间</li>
+            <li>身体健康,无遗传疾病</li>
+            <li>愿意接受全面的健康检查</li>
+            <li>了解并同意相关法律和道德责任</li>
+        </ul>
+    </section>
+
+    <section id="form">
+        <h2>报名表单</h2>
+        <form id="donationForm">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" required>
+
+            <label for="age">年龄:</label>
+            <input type="number" id="age" required>
+
+            <label for="email">电子邮件:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">电话:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="health">健康状况简述:</label>
+            <textarea id="health" rows="4" required></textarea>
+
+            <label for="motivation">捐献动机:</label>
+            <textarea id="motivation" rows="4" required></textarea>
+
+            <button type="submit">提交</button>
+        </form>
+    </section>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let formData = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                health: document.getElementById('health').value,
+                motivation: document.getElementById('motivation').value
+            };
+            tg.sendData(JSON.stringify(formData));
+            tg.close();
+        });
+    </script>
+</body>
+</html>
