@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -69,24 +69,24 @@
 
     <section id="form">
         <h2>报名表单</h2>
-        <form id="donationForm">
+        <form id="donationForm" action="http://localhost:3000/submit" method="POST">
             <label for="name">姓名:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
 
             <label for="age">年龄:</label>
-            <input type="number" id="age" required>
+            <input type="number" id="age" name="age" required>
 
             <label for="email">电子邮件:</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required>
 
             <label for="phone">电话:</label>
-            <input type="tel" id="phone" required>
+            <input type="tel" id="phone" name="phone" required>
 
             <label for="health">健康状况简述:</label>
-            <textarea id="health" rows="4" required></textarea>
+            <textarea id="health" name="health" rows="4" required></textarea>
 
             <label for="motivation">捐献动机:</label>
-            <textarea id="motivation" rows="4" required></textarea>
+            <textarea id="motivation" name="motivation" rows="4" required></textarea>
 
             <button type="submit">提交</button>
         </form>
@@ -97,17 +97,7 @@
         tg.expand();
 
         document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            let formData = {
-                name: document.getElementById('name').value,
-                age: document.getElementById('age').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                health: document.getElementById('health').value,
-                motivation: document.getElementById('motivation').value
-            };
-            tg.sendData(JSON.stringify(formData));
-            tg.close();
+            // Optional: Handle any frontend validation or interaction with the Telegram Web App here.
         });
     </script>
 </body>
