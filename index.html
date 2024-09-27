@@ -71,6 +71,9 @@
         form button:hover {
             background-color: #2980b9;
         }
+        .hidden {
+            display: none;
+        }
         .contact-info {
             font-size: 1.1em;
             text-align: center;
@@ -86,33 +89,6 @@
     <h1>助孕信息平台</h1>
 
     <div class="container">
-        <!-- 关于我们 -->
-        <section id="about">
-            <h2>关于我们</h2>
-            <p>本平台致力于帮助有助孕需求的家庭。我们通过提供者的精子捐献，帮助不孕不育的夫妻实现受孕的梦想。夫妻可以根据自己的需求挑选捐赠精子的人，目前我们的精子提供者名字叫做<span class="highlight">树洞</span>。</p>
-            <p>树洞目前居住在北京，已婚，育有一儿一女。他身高<span class="highlight">179厘米</span>，体型匀称，毕业于<span class="highlight">名校</span>，目前在金融系统担任<span class="highlight">高管</span>。他是一位身体健康、智力优秀且具有高度责任感的成功人士，愿意通过捐精的方式帮助更多需要的家庭。</p>
-        </section>
-
-        <!-- 注意事项 -->
-        <section id="precautions">
-            <h2>借种注意事项</h2>
-            <p>在进行借种助孕时，我们建议您注意以下事项：</p>
-            <ul class="intro-list">
-                <li>尽量避免选择熟人进行捐精，后续关系可能复杂，影响夫妻感情。</li>
-                <li>确保孩子的身份不会过早暴露，以保障孩子的心理健康。</li>
-                <li>慎重选择捐精者，确保其身体健康、性格良好，并有良好的家庭和生活背景。</li>
-                <li>夫妻双方在借种前应充分沟通，确保彼此理解和支持，特别是女性伴侣应自愿接受助孕方式。</li>
-                <li>适时告诉孩子其出生背景，以避免其产生身份认同问题。</li>
-            </ul>
-        </section>
-
-        <!-- 直接受孕和间接受孕的区别 -->
-        <section id="methods">
-            <h2>直接受孕与间接受孕的区别</h2>
-            <p><span class="highlight">直接受孕</span>：通过性行为进行受精，虽然这种方式可能会让一些人感到尴尬，但其成功率较高，因为受孕过程更自然。在女性处于性兴奋状态时，精子更容易着床，增加了成功怀孕的几率。</p>
-            <p><span class="highlight">间接受孕</span>：通过体外受精的方式进行。男方排出精液后，经过处理，将精液注入女方体内。虽然这种方式较为隐私，但其成功率稍低，因女性在非自然状态下，精子的着床率相对较低。</p>
-        </section>
-
         <!-- 表单部分 -->
         <section id="form">
             <h2>报名表单</h2>
@@ -128,20 +104,105 @@
                     <option value="female">女性</option>
                 </select>
 
-                <!-- 男性或女性问题表单部分同之前一样，可以根据性别显示不同的问题 -->
+                <!-- 男性问题表单 -->
+                <div id="maleQuestions" class="hidden">
+                    <h3>请回答以下问题（男性）:</h3>
+                    <label for="male_age">1. 年龄和结婚时间:</label>
+                    <input type="text" id="male_age" name="male_age" required>
+
+                    <label for="male_frequency">2. 做爱频率 每次多久 备孕多久:</label>
+                    <input type="text" id="male_frequency" name="male_frequency" required>
+
+                    <label for="male_city">3. 所在城市 精子问题还是硬度问题:</label>
+                    <input type="text" id="male_city" name="male_city" required>
+
+                    <label for="male_ovulation">4. 排卵期几号 是否能来北京:</label>
+                    <input type="text" id="male_ovulation" name="male_ovulation" required>
+
+                    <label for="male_work">5. 你和夫人工作 身高 体重 三围:</label>
+                    <input type="text" id="male_work" name="male_work" required>
+
+                    <label for="male_character">6. 你和夫人性格及是否同意:</label>
+                    <input type="text" id="male_character" name="male_character" required>
+
+                    <label for="male_previous">7. 之前是否助孕过:</label>
+                    <input type="text" id="male_previous" name="male_previous" required>
+
+                    <label for="male_abortion">8. 是否有打胎史:</label>
+                    <input type="text" id="male_abortion" name="male_abortion" required>
+
+                    <label for="male_special">9. 是否有绿帽还是绿奴:</label>
+                    <input type="text" id="male_special" name="male_special" required>
+
+                    <label for="male_method">10. 想自然受孕还是间接注射:</label>
+                    <input type="text" id="male_method" name="male_method" required>
+                </div>
+
+                <!-- 女性问题表单 -->
+                <div id="femaleQuestions" class="hidden">
+                    <h3>请回答以下问题（女性）:</h3>
+                    <label for="female_age">1. 年龄和结婚时间:</label>
+                    <input type="text" id="female_age" name="female_age" required>
+
+                    <label for="female_frequency">2. 做爱频率 每次多久 备孕多久:</label>
+                    <input type="text" id="female_frequency" name="female_frequency" required>
+
+                    <label for="female_city">3. 所在城市 精子问题还是硬度问题:</label>
+                    <input type="text" id="female_city" name="female_city" required>
+
+                    <label for="female_ovulation">4. 排卵期几号 是否能来北京:</label>
+                    <input type="text" id="female_ovulation" name="female_ovulation" required>
+
+                    <label for="female_work">5. 你和夫人工作 身高 体重 三围:</label>
+                    <input type="text" id="female_work" name="female_work" required>
+
+                    <label for="female_character">6. 你和夫人性格及是否同意:</label>
+                    <input type="text" id="female_character" name="female_character" required>
+
+                    <label for="female_previous">7. 之前是否助孕过:</label>
+                    <input type="text" id="female_previous" name="female_previous" required>
+
+                    <label for="female_abortion">8. 是否有打胎史:</label>
+                    <input type="text" id="female_abortion" name="female_abortion" required>
+
+                    <label for="female_method">9. 想自然受孕还是间接注射:</label>
+                    <input type="text" id="female_method" name="female_method" required>
+                </div>
 
                 <button type="submit">提交</button>
             </form>
         </section>
-
-        <!-- 联系我们 -->
-        <section id="contact">
-            <h2>联系我们</h2>
-            <p class="contact-info">
-                男性请联系：<a href="https://t.me/chen5948" target="_blank">@chen5948</a><br>
-                女性请联系：<a href="https://t.me/smilecatinspring" target="_blank">@smilecatinspring</a>
-            </p>
-        </section>
     </div>
+
+    <script>
+        // 获取性别选择元素
+        const genderSelect = document.getElementById('gender');
+        const maleQuestions = document.getElementById('maleQuestions');
+        const femaleQuestions = document.getElementById('femaleQuestions');
+        const telegramInput = document.getElementById('telegramUsername');
+
+        // 监听性别选择的变化
+        genderSelect.addEventListener('change', function() {
+            if (genderSelect.value === 'male') {
+                maleQuestions.classList.remove('hidden');
+                femaleQuestions.classList.add('hidden');
+            } else if (genderSelect.value === 'female') {
+                femaleQuestions.classList.remove('hidden');
+                maleQuestions.classList.add('hidden');
+            } else {
+                maleQuestions.classList.add('hidden');
+                femaleQuestions.classList.add('hidden');
+            }
+        });
+
+        // 验证 Telegram 账号是否为空
+        const form = document.getElementById('donationForm');
+        form.addEventListener('submit', function(event) {
+            if (!telegramInput.value) {
+                alert('Telegram账号名称为必填项');
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
