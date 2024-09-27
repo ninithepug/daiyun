@@ -1,104 +1,147 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>精子捐献信息</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>助孕信息平台</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
         }
-        h1, h2 {
-            color: #2c3e50;
+        p {
+            text-align: justify;
+            font-size: 1.1em;
+            margin-bottom: 20px;
         }
-        form {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
+        section {
+            margin-bottom: 40px;
         }
-        label {
-            display: block;
-            margin-top: 10px;
+        .intro-list {
+            list-style: disc;
+            padding-left: 20px;
         }
-        input, textarea {
+        .intro-list li {
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+        form input, form textarea, form select {
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
+            padding: 10px;
+            margin-top: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 1em;
+            background-color: #fff;
+            color: #333;
         }
-        button {
+        form button {
             background-color: #3498db;
             color: white;
-            padding: 10px 15px;
+            padding: 15px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            width: 100%;
         }
-        button:hover {
+        form button:hover {
             background-color: #2980b9;
+        }
+        .contact-info {
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>精子捐献信息</h1>
-    
-    <section id="intro">
-        <h2>关于我们</h2>
-        <p>我们是一个致力于帮助有需要的家庭的组织。我们提供精子捐献服务,为不孕不育家庭带来希望。</p>
-        <p>我们严格遵守相关法律法规,确保所有参与者的权益和安全。</p>
-    </section>
+    <h1>助孕信息平台</h1>
 
-    <section id="requirements">
-        <h2>捐献者要求</h2>
-        <ul>
-            <li>年龄在18-45岁之间</li>
-            <li>身体健康,无遗传疾病</li>
-            <li>愿意接受全面的健康检查</li>
-            <li>了解并同意相关法律和道德责任</li>
-        </ul>
-    </section>
+    <div class="container">
+        <!-- 关于我们 -->
+        <section id="about">
+            <h2>关于我们</h2>
+            <p>本平台致力于帮助有助孕需求的家庭。我们通过提供者的精子捐献，帮助不孕不育的夫妻实现受孕的梦想。夫妻可以根据自己的需求挑选捐赠精子的人，目前我们的精子提供者名字叫做<span class="highlight">树洞</span>。</p>
+            <p>树洞目前居住在北京，已婚，育有一儿一女。他身高<span class="highlight">179厘米</span>，体型匀称，毕业于<span class="highlight">名校</span>，目前在金融系统担任<span class="highlight">高管</span>。他是一位身体健康、智力优秀且具有高度责任感的成功人士，愿意通过捐精的方式帮助更多需要的家庭。</p>
+        </section>
 
-    <section id="form">
-        <h2>报名表单</h2>
-        <form id="donationForm" action="https://daiyun-gules.vercel.app/submit" method="POST">
-            <label for="name">姓名:</label>
-            <input type="text" id="name" name="name" required>
+        <!-- 注意事项 -->
+        <section id="precautions">
+            <h2>借种注意事项</h2>
+            <p>在进行借种助孕时，我们建议您注意以下事项：</p>
+            <ul class="intro-list">
+                <li>尽量避免选择熟人进行捐精，后续关系可能复杂，影响夫妻感情。</li>
+                <li>确保孩子的身份不会过早暴露，以保障孩子的心理健康。</li>
+                <li>慎重选择捐精者，确保其身体健康、性格良好，并有良好的家庭和生活背景。</li>
+                <li>夫妻双方在借种前应充分沟通，确保彼此理解和支持，特别是女性伴侣应自愿接受助孕方式。</li>
+                <li>适时告诉孩子其出生背景，以避免其产生身份认同问题。</li>
+            </ul>
+        </section>
 
-            <label for="age">年龄:</label>
-            <input type="number" id="age" name="age" required>
+        <!-- 直接受孕和间接受孕的区别 -->
+        <section id="methods">
+            <h2>直接受孕与间接受孕的区别</h2>
+            <p><span class="highlight">直接受孕</span>：通过性行为进行受精，虽然这种方式可能会让一些人感到尴尬，但其成功率较高，因为受孕过程更自然。在女性处于性兴奋状态时，精子更容易着床，增加了成功怀孕的几率。</p>
+            <p><span class="highlight">间接受孕</span>：通过体外受精的方式进行。男方排出精液后，经过处理，将精液注入女方体内。虽然这种方式较为隐私，但其成功率稍低，因女性在非自然状态下，精子的着床率相对较低。</p>
+        </section>
 
-            <label for="email">电子邮件:</label>
-            <input type="email" id="email" name="email" required>
+        <!-- 表单部分 -->
+        <section id="form">
+            <h2>报名表单</h2>
+            <form id="donationForm" action="https://daiyun-gules.vercel.app/submit" method="POST">
+                <label for="telegramUsername">Telegram账号名称:</label>
+                <input type="text" id="telegramUsername" name="telegramUsername" placeholder="请输入您的Telegram账号" required>
 
-            <label for="phone">电话:</label>
-            <input type="tel" id="phone" name="phone" required>
+                <!-- 性别选择 -->
+                <label for="gender">请选择您的性别:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">请选择</option>
+                    <option value="male">男性</option>
+                    <option value="female">女性</option>
+                </select>
 
-            <label for="health">健康状况简述:</label>
-            <textarea id="health" name="health" rows="4" required></textarea>
+                <!-- 男性或女性问题表单部分同之前一样，可以根据性别显示不同的问题 -->
 
-            <label for="motivation">捐献动机:</label>
-            <textarea id="motivation" name="motivation" rows="4" required></textarea>
+                <button type="submit">提交</button>
+            </form>
+        </section>
 
-            <button type="submit">提交</button>
-        </form>
-    </section>
-
-    <script>
-        let tg = window.Telegram.WebApp;
-        tg.expand();
-
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            // Optional: Handle any frontend validation or interaction with the Telegram Web App here.
-        });
-    </script>
+        <!-- 联系我们 -->
+        <section id="contact">
+            <h2>联系我们</h2>
+            <p class="contact-info">
+                男性请联系：<a href="https://t.me/chen5948" target="_blank">@chen5948</a><br>
+                女性请联系：<a href="https://t.me/smilecatinspring" target="_blank">@smilecatinspring</a>
+            </p>
+        </section>
+    </div>
 </body>
 </html>
