@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
-const BOT_TOKEN = 'YOUR_BOT_TOKEN'; // Replace with your bot token
-const CHAT_ID = 'YOUR_CHAT_ID'; // Replace with your chat ID
+const BOT_TOKEN = process.env.BOT_TOKEN; // 从环境变量中读取 Bot Token
+const CHAT_ID = process.env.CHAT_ID;     // 从环境变量中读取 Chat ID
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
