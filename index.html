@@ -226,14 +226,35 @@
             if (genderSelect.value === 'male') {
                 maleQuestions.classList.remove('hidden');
                 femaleQuestions.classList.add('hidden');
+                // 添加男性表单字段的 required 属性，并移除女性表单的 required
+                toggleRequired(maleQuestions, true);
+                toggleRequired(femaleQuestions, false);
             } else if (genderSelect.value === 'female') {
                 femaleQuestions.classList.remove('hidden');
                 maleQuestions.classList.add('hidden');
+                // 添加女性表单字段的 required 属性，并移除男性表单的 required
+                toggleRequired(femaleQuestions, true);
+                toggleRequired(maleQuestions, false);
             } else {
                 maleQuestions.classList.add('hidden');
                 femaleQuestions.classList.add('hidden');
+                // 移除所有表单字段的 required 属性
+                toggleRequired(maleQuestions, false);
+                toggleRequired(femaleQuestions, false);
             }
         });
+    
+        // 辅助函数：启用或禁用某个表单字段组的 required 属性
+        function toggleRequired(section, isRequired) {
+            const inputs = section.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (isRequired) {
+                    input.setAttribute('required', 'required');
+                } else {
+                    input.removeAttribute('required');
+                }
+            });
+        }
     
         // 验证 Telegram 账号是否为空
         form.addEventListener('submit', function(event) {
@@ -254,34 +275,10 @@
                 return;
             }
     
-            // 根据性别验证相应的问题表单
-            if (genderSelect.value === 'male') {
-                console.log("Male form submission");
-                const maleFields = ['male_age', 'male_frequency', 'male_city', 'male_ovulation', 'male_work', 'male_character', 'male_previous', 'male_abortion', 'male_special', 'male_method'];
-                for (const field of maleFields) {
-                    const input = document.getElementById(field);
-                    if (!input.value) {
-                        alert(`请填写男性问题 ${input.name}`);
-                        event.preventDefault();  // 阻止提交
-                        return;
-                    }
-                }
-            } else if (genderSelect.value === 'female') {
-                console.log("Female form submission");
-                const femaleFields = ['female_age', 'female_frequency', 'female_city', 'female_ovulation', 'female_work', 'female_character', 'female_previous', 'female_abortion', 'female_method'];
-                for (const field of femaleFields) {
-                    const input = document.getElementById(field);
-                    if (!input.value) {
-                        alert(`请填写女性问题 ${input.name}`);
-                        event.preventDefault();  // 阻止提交
-                        return;
-                    }
-                }
-            }
-            
             console.log("Form passed validation, ready to submit.");  // 表单通过验证，准备提交
         });
     </script>
+    
     
 </body>
 </html>
